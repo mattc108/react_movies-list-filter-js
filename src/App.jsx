@@ -8,8 +8,8 @@ export const App = () => {
 
   const filteredMovies = moviesFromServer.filter(
     movie =>
-      movie.title.toLowerCase().includes(queryFilter) ||
-      movie.description.toLowerCase().includes(queryFilter),
+      movie.title.toLowerCase().includes(queryFilter.toLowerCase()) ||
+      movie.description.toLowerCase().includes(queryFilter.toLowerCase()),
     // eslint-disable-next-line function-paren-newline
   );
 
@@ -29,9 +29,7 @@ export const App = () => {
                 id="search-query"
                 className="input"
                 placeholder="Type search word"
-                onChange={query =>
-                  setQueryFilter(query.target.value.toLowerCase().trim())
-                }
+                onChange={query => setQueryFilter(query.target.value.trim())}
               />
             </div>
           </div>
